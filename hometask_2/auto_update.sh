@@ -9,4 +9,4 @@ sudo touch $upd
     sudo apt-get upgrade -y;
     echo `date`": Weekly update successful";
 } > $upd
-sudo chmod +x '.'/auto_update.sh
+
