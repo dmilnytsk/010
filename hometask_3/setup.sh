@@ -31,8 +31,8 @@ sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_nativ
 grant all privileges ON *.* TO 'root'@'%' IDENTIFIED BY '123456' with grant option;"
 
 sudo sed -i "s/.*bind-address.*/bind-address =      0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
-
 sudo echo transaction-isolation=READ-COMMITTED >> /etc/mysql/mysql.conf.d/mysqld.cnf
+
 sudo systemctl restart mysql.service
 
  # CONFLUENCE INSTALLATION
