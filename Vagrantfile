@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+
+  config.vm.define "db1" do |db1|
+    db1.vm.box = "ubuntu/bionic64"
+    db1.vm.hostname = 'bionic64'
+    db1.vm.network "forwarded_port", guest: 8090, host: 8080
+    db1.vm.network "forwarded_port", guest: 3306, host: 3306
+    db1.vm.box_url = "ubuntu/bionic64"
+    db1.vm.provider "virtualbox" do |vb|
+  
+    vb.memory = "4096"
+    vb.cpus = "2"
+     end 
+
+    db1.vm.provision :shell, path: "setup.sh"
+   end
+end
